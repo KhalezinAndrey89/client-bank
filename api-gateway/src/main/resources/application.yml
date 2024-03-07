@@ -1,22 +1,17 @@
 server:
   port: 8765
 
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: user-service
-#          uri: lb://USER-SERVICE
-#          predicates:
-#            - Path=/user/**
-#          filters:
-#            - StripPrefix=1
-#        - id: order-service
-#          uri: lb://ORDER-SERVICE
-#          predicates:
-#            - Path=/order/**
-#          filters:
-#            - StripPrefix=1
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth-service/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
