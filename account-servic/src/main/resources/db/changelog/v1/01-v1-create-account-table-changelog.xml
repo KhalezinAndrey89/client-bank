@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="v1-1-1" author="Khalezin Andrey">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="account"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="account">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="account_number" type="varchar(128)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+
+            <column name="balance" type="decimal(19, 4)" defaultValue="0">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v1-1-2" author="Khalezin Andrey">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="account"/>
+        </preConditions>
+
+        <loadData tableName="account" file="db/data/account-data.csv"/>
+    </changeSet>
+
+</databaseChangeLog>
