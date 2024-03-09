@@ -8,7 +8,7 @@ eureka:
 
 spring:
   application:
-    name: auth-service
+    name: account-service
 
   datasource:
     url: jdbc:postgresql://localhost:5432/database_account_service

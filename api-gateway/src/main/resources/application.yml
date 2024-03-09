@@ -12,6 +12,12 @@ spring:
             - Path=/auth-service/**
           filters:
             - StripPrefix=1
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICE
+          predicates:
+            - Path=/account-service/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
