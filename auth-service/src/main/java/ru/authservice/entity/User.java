@@ -1,12 +1,10 @@
 package ru.authservice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -23,5 +21,8 @@ public class User {
     private String password;
 
     private String email;
+
+    @Column(name = "account-id")
+    private Long accountId;
 
 }

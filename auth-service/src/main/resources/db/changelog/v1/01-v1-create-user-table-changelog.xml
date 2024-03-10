@@ -24,17 +24,13 @@
             </column>
 
             <column name="email" type="varchar(128)">
-                <constraints nullable="true"/>
+                <constraints nullable="true" unique="true"/>
+            </column>
+
+            <column name="account-id" type="bigint">
+                <constraints nullable="true" unique="true"/>
             </column>
         </createTable>
-    </changeSet>
-
-    <changeSet id="v1-2" author="Khalezin Andrey">
-        <preConditions onFail="MARK_RAN">
-            <tableIsEmpty tableName="users"/>
-        </preConditions>
-
-        <loadData tableName="users" file="db/data/user-data.csv"/>
     </changeSet>
 
 </databaseChangeLog>

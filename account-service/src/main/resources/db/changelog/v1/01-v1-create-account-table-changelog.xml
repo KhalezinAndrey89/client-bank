@@ -25,12 +25,4 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="v1-1-2" author="Khalezin Andrey">
-        <preConditions onFail="MARK_RAN">
-            <tableIsEmpty tableName="account"/>
-        </preConditions>
-
-        <loadData tableName="account" file="db/data/account-data.csv"/>
-    </changeSet>
-
 </databaseChangeLog>
